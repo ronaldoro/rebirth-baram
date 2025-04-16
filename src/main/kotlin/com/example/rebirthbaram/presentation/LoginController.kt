@@ -1,4 +1,4 @@
-package com.example.rebirthbaram
+package com.example.rebirthbaram.presentation
 
 import org.springframework.web.bind.annotation.*
 
