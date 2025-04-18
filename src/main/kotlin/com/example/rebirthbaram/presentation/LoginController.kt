@@ -1,23 +1,26 @@
 package com.example.rebirthbaram.presentation
 
+import com.example.rebirthbaram.domain.User
+import com.example.rebirthbaram.usecase.auth.LoginUseCase
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api")
-class ApiController {
+class LoginController(
+    private val loginUseCase: LoginUseCase
+) {
 
-    // GET 요청: 단순 메시지 반환
-    @GetMapping("/hello")
-    fun hello(): String {
-        return "Hello, Spring Boot API with Kotlin!"
+    // 클라이언트가 보내는 로그인 요청 DTO
+    data class LoginRequest(val id: String, val name: String)
+
+    // POST /api/login
+    @PostMapping("/login")
+    fun login(@RequestBody request: LoginRequest): User {
+        return loginUseCase.login(request.id, request.name)
     }
 
-    // POST 요청: JSON 데이터를 받아서 처리
-    @PostMapping("/echo")
-    fun echo(@RequestBody message: Message): Message {
-        return Message("Received: ${message.content}")
+    @GetMapping("/users")
+    fun getLoggedInUsers(): List<User> {
+        return loginUseCase.getLoggedInUsers()  // 로그인된 유저 리스트를 반환
     }
-
-    // 데이터 모델
-    data class Message(val content: String)
 }
