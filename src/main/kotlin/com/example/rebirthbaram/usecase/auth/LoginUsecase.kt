@@ -4,5 +4,6 @@ import com.example.rebirthbaram.domain.User
 
 interface LoginUseCase {
     fun login(id: String, name: String): User
+    fun logout(id: String, name: String): User
     fun getLoggedInUsers(): List<User>
 }

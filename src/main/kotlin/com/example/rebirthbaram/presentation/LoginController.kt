@@ -19,6 +19,11 @@ class LoginController(
         return loginUseCase.login(request.id, request.name)
     }
 
+    @PostMapping("/logout")
+    fun logout(@RequestBody request: LoginRequest): User {
+        return loginUseCase.logout(request.id, request.name)
+    }
+
     @GetMapping("/users")
     fun getLoggedInUsers(): List<User> {
         return loginUseCase.getLoggedInUsers()  // 로그인된 유저 리스트를 반환

@@ -23,12 +23,12 @@ class LoginEventLogger {
         }
     }
 
-    fun logSuccess(userId: String) {
+    fun logEvent(userId: String, event: String) {
         // 로그 엔트리를 JSON 객체로 만들기
         val logEntry = JSONObject().apply {
             put("timestamp", Instant.now().toString())
             put("userId", userId)
-            put("status", "login")
+            put("event", event)
         }
 
         // 로그 엔트리를 파일에 추가 (각 로그는 한 줄에 한 JSON 객체)
