@@ -11,8 +11,8 @@ class LoginUseCaseImpl(
     private val loginEventLogger: LoginEventLogger
 ) : LoginUseCase {
 
-    override fun login(id: String, name: String): User {
-        val user = User(id, name)
+    override fun login(id: String, name: String, mapName: String): User {
+        val user = User(id, name, mapName)
         userRepository.save(user)
 
         loginEventLogger.logEvent(user.id, "login")
@@ -24,7 +24,7 @@ class LoginUseCaseImpl(
         userRepository.deleteById(id)
         loginEventLogger.logEvent(id, "logout")
 
-        return User(id, name)
+        return User(id, name, "")
     }
 
     override fun getLoggedInUsers(): List<User> {

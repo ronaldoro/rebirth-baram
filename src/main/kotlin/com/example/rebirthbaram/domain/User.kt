@@ -2,5 +2,6 @@ package com.example.rebirthbaram.domain
 
 data class User(
     val id: String,
-    val name: String
+    val name: String,
+    var mapName: String
 )

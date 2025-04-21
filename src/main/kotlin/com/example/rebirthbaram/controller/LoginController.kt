@@ -1,4 +1,4 @@
-package com.example.rebirthbaram.presentation
+package com.example.rebirthbaram.controller
 
 import com.example.rebirthbaram.domain.User
 import com.example.rebirthbaram.usecase.auth.LoginUseCase
@@ -9,18 +9,17 @@ import org.springframework.web.bind.annotation.*
 class LoginController(
     private val loginUseCase: LoginUseCase
 ) {
-
-    // 클라이언트가 보내는 로그인 요청 DTO
-    data class LoginRequest(val id: String, val name: String)
+    data class LoginRequest(val id: String, val name: String, var mapName: String)
+    data class LogoutRequest(val id: String, val name: String)
 
     // POST /api/login
     @PostMapping("/login")
     fun login(@RequestBody request: LoginRequest): User {
-        return loginUseCase.login(request.id, request.name)
+        return loginUseCase.login(request.id, request.name, request.mapName)
     }
 
     @PostMapping("/logout")
-    fun logout(@RequestBody request: LoginRequest): User {
+    fun logout(@RequestBody request: LogoutRequest): User {
         return loginUseCase.logout(request.id, request.name)
     }
 
