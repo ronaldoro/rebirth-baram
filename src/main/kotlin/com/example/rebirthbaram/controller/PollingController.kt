@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.*
 class PollingController {
 
     @GetMapping("/expRate")
-    fun getLoggedInUsers(): Int {
+    fun getExpRate(): Int {
         return 10
+    }
+
+    @GetMapping("/notice")
+    fun getNotice(): String {
+        return ""
     }
 }
