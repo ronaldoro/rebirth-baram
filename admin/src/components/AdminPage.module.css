@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .sidebar {
+    width: 220px;
+    background-color: #2d3748;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #f6ad55;
+  }
+  
+  .menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menuItem {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  .menuItem:hover {
+    background-color: #4a5568;
+  }
+  
+  .active {
+    background-color: #f6ad55;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f7fafc;
+    overflow-y: auto;
+  }
+  

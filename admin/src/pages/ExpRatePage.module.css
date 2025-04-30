@@ -1,0 +1,70 @@
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Toast 배치용 */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .expInput {
+    width: 120px;
+    padding: 10px 16px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .updateButton {
+    background-color: #48bb78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .updateButton:hover {
+    background-color: #38a169;
+  }
+  
+  .updateButton:disabled {
+    background-color: #9ae6b4;
+    cursor: not-allowed;
+  }
+  
+  .toast {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #2d3748;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeout {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  

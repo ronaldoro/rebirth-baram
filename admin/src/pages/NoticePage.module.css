@@ -1,0 +1,87 @@
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .notice {
+    margin-bottom: 20px;
+  }
+  
+  .noticeContent {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #2d3748;
+  }
+  
+  .addNotice {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .noticeInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: vertical;
+  }
+  
+  .addButton {
+    background-color: #48bb78;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addButton:hover {
+    background-color: #38a169;
+  }
+  
+  .addButton:disabled {
+    background-color: #9ae6b4;
+    cursor: not-allowed;
+  }
+  
+  .deleteNotice {
+    margin-top: 20px;
+  }
+  
+  .deleteButton {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c53030;
+  }
+  
+  .deleteButton:disabled {
+    background-color: #fed7d7;
+    cursor: not-allowed;
+  }
+  
