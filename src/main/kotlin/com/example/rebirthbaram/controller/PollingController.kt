@@ -29,7 +29,7 @@ class PollingController(
     }
 
     @DeleteMapping("/notice")
-    fun deleteNotice(@RequestBody noticeContent: String) {
+    fun deleteNotice() {
         noticeUsecase.deleteNotice()
     }
 }
