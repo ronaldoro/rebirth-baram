@@ -17,7 +17,8 @@ const NoticePage: React.FC = () => {
           'Accept': 'application/json',
         },
       });
-      setNotice(response.data);
+      const fetchedNotice = response.data;
+      setNotice(fetchedNotice || "");  // null이나 undefined를 빈 문자열로 처리
     } catch (error) {
       console.error('공지사항 불러오기 실패', error);
       alert('공지사항을 불러오는 데 실패했습니다.');
