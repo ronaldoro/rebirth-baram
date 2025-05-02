@@ -34,10 +34,9 @@ const AdminPage: React.FC = () => {
           {menuItems.map((item) => (
             <li
               key={item}
-              className={`${styles.menuItem} ${
-                activeMenu === item ? styles.active : ''
-              }`}
+              className={`${styles.menuItem} ${activeMenu === item ? styles.active : ''}`}
               onClick={() => setActiveMenu(item)}
+              aria-current={activeMenu === item ? 'page' : undefined}
             >
               {item}
             </li>
