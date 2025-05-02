@@ -37,7 +37,13 @@ const NoticePage: React.FC = () => {
     
     try {
       setLoading(true);
-      await axios.post('/api/notice', { content: newNotice });
+      //await axios.post('/api/notice', { content: newNotice });
+      await axios.post('/api/notice', JSON.stringify(newNotice), {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
       fetchNotice(); // 공지사항 갱신
       setNewNotice(''); // 등록 후 입력창 초기화
     } catch (error) {
