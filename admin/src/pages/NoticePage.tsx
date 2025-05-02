@@ -36,7 +36,7 @@ const NoticePage: React.FC = () => {
     
     try {
       setLoading(true);
-      await axios.post('${API_BASE_URL}/api/notice', { content: newNotice });
+      await axios.post('/api/notice', { content: newNotice });
       fetchNotice(); // 공지사항 갱신
       setNewNotice(''); // 등록 후 입력창 초기화
     } catch (error) {
@@ -51,7 +51,7 @@ const NoticePage: React.FC = () => {
   const deleteNotice = async () => {
     try {
       setLoading(true);
-      await axios.delete('${API_BASE_URL}/api/notice');
+      await axios.delete('/api/notice');
       fetchNotice(); // 공지사항 삭제 후 갱신
     } catch (error) {
       console.error('공지사항 삭제 실패', error);
