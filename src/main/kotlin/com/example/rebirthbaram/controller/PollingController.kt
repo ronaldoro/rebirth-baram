@@ -27,4 +27,9 @@ class PollingController(
     fun updateNotice(@RequestBody noticeContent: String) {
         noticeUsecase.updateNotice(noticeContent)
     }
+
+    @DeleteMapping("/notice")
+    fun deleteNotice(@RequestBody noticeContent: String) {
+        noticeUsecase.deleteNotice()
+    }
 }

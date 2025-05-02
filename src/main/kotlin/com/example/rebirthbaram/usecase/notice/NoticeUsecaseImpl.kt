@@ -15,4 +15,8 @@ class NoticeUsecaseImpl : NoticeUsecase {
         notice = noticeContent
     }
 
+    override fun deleteNotice() {
+        notice = ""
+    }
+
 }
