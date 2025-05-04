@@ -83,8 +83,6 @@ const MailPage: React.FC = () => {
       setInfoMessage('삭제 중 오류가 발생했습니다.');
     }
   };
-  
-
   // 메시지 자동 클리어 (3초 후)
   useEffect(() => {
     if (!infoMessage) return;
