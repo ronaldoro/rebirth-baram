@@ -4,8 +4,9 @@ import styles from './AdminPage.module.css';
 import UserListPage from '../pages/UserListPage';
 import ExpRatePage from '../pages/ExpRatePage';
 import NoticePage from '../pages/NoticePage';
+import MailPage from '../pages/MailPage';
 
-type MenuType = '사용자 확인' | '경험치 배율 조절' | '공지사항';
+type MenuType = '사용자 확인' | '경험치 배율 조절' | '공지사항' | '메일 관리';
 
 const AdminPage: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<MenuType>('사용자 확인');
@@ -19,12 +20,19 @@ const AdminPage: React.FC = () => {
         return <ExpRatePage />;
       case '공지사항':
         return <NoticePage />;
+      case '메일 관리':
+        return <MailPage />;        
       default:
         return null;
     }
   };
 
-  const menuItems: MenuType[] = ['사용자 확인', '경험치 배율 조절', '공지사항'];
+  const menuItems: MenuType[] = [
+    '사용자 확인',
+    '경험치 배율 조절',
+    '공지사항',
+    '메일 관리',
+  ];
 
   return (
     <div className={styles.container}>
