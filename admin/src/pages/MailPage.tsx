@@ -63,14 +63,11 @@ const MailPage: React.FC = () => {
     try {
       const res = await axios.post<{ removed: boolean }>(
         '/api/mail/remove',
-        null,
         {
-          params: {
-            userId: queryUserId,
-            ownerName: queryOwnerName,
-            itemId: mail.itemId,
-            senderName: mail.senderName,
-          },
+          userId: queryUserId,
+          ownerName: queryOwnerName,
+          itemId: mail.itemId,
+          senderName: mail.senderName,
         }
       );
   
@@ -86,6 +83,7 @@ const MailPage: React.FC = () => {
       setInfoMessage('삭제 중 오류가 발생했습니다.');
     }
   };
+  
 
   // 메시지 자동 클리어 (3초 후)
   useEffect(() => {

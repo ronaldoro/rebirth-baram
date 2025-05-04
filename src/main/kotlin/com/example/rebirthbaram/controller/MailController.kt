@@ -29,14 +29,21 @@ class MailController (
         mailUsecase.addMail(userId, ownerName, itemId, senderName)
     }
 
+    data class RemoveMailRequest(
+        val userId: String,
+        val ownerName: String,
+        val itemId: String,
+        val senderName: String
+    )
+
     @PostMapping("/remove")
-    fun removeMailPost(
-        @RequestParam userId: String,
-        @RequestParam ownerName: String,
-        @RequestParam itemId: String,
-        @RequestParam senderName: String
-    ): Map<String, Boolean> {
-        val removed = mailUsecase.removeMail(userId, ownerName, itemId, senderName)
+    fun removeMailPost(@RequestBody request: RemoveMailRequest): Map<String, Boolean> {
+        val removed = mailUsecase.removeMail(
+            request.userId,
+            request.ownerName,
+            request.itemId,
+            request.senderName
+        )
         return mapOf("removed" to removed)
     }
 }
