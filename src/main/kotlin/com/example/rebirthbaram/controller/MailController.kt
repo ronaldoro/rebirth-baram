@@ -2,6 +2,7 @@ package com.example.rebirthbaram.controller
 
 import com.example.rebirthbaram.usecase.mail.Mail
 import com.example.rebirthbaram.usecase.mail.MailUsecase
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -34,12 +35,13 @@ class MailController (
         @RequestParam ownerName: String,
         @RequestParam itemId: String,
         @RequestParam senderName: String
-    ): ResponseEntity<Void> {
+    ): ResponseEntity<String> {
         val removed = mailUsecase.removeMail(userId, ownerName, itemId, senderName)
         return if (removed) {
-            ResponseEntity.noContent().build()    // 204 No Content
+            ResponseEntity.ok("삭제되었습니다")
         } else {
-            ResponseEntity.notFound().build()     // 404 Not Found
+            ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("삭제할 메일이 없습니다")
         }
     }
 }
