@@ -29,19 +29,14 @@ class MailController (
         mailUsecase.addMail(userId, ownerName, itemId, senderName)
     }
 
-    @DeleteMapping
-    fun removeMail(
+    @PostMapping("/remove")
+    fun removeMailPost(
         @RequestParam userId: String,
         @RequestParam ownerName: String,
         @RequestParam itemId: String,
         @RequestParam senderName: String
-    ): ResponseEntity<String> {
+    ): Map<String, Boolean> {
         val removed = mailUsecase.removeMail(userId, ownerName, itemId, senderName)
-        return if (removed) {
-            ResponseEntity.ok("삭제되었습니다")
-        } else {
-            ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body("삭제할 메일이 없습니다")
-        }
+        return mapOf("removed" to removed)
     }
 }

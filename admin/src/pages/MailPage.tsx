@@ -61,18 +61,29 @@ const MailPage: React.FC = () => {
 
   const onRemove = async (mail: Mail) => {
     try {
-      await axios.delete('/api/mail', {
-        params: {
-          userId: queryUserId,
-          ownerName: queryOwnerName,
-          itemId: mail.itemId,
-          senderName: mail.senderName
+      const res = await axios.post<{ removed: boolean }>(
+        '/api/mail/remove',
+        null,
+        {
+          params: {
+            userId: queryUserId,
+            ownerName: queryOwnerName,
+            itemId: mail.itemId,
+            senderName: mail.senderName,
+          },
         }
-      });
-      setInfoMessage('메일이 삭제되었습니다.');
+      );
+  
+      if (res.data.removed) {
+        setInfoMessage('메일이 삭제되었습니다.');
+      } else {
+        setInfoMessage('삭제할 메일이 없습니다.');
+      }
+  
       fetchMails();
     } catch (err) {
       console.error('메일 삭제 실패', err);
+      setInfoMessage('삭제 중 오류가 발생했습니다.');
     }
   };
 
