@@ -18,8 +18,8 @@ class MailUsecaseImpl(
         mailRepository.addMail(userId, ownerName, mail)
     }
 
-    override fun removeMail(userId: String, ownerName: String, itemId: String, senderName: String) {
+    override fun removeMail(userId: String, ownerName: String, itemId: String, senderName: String): Boolean {
         val mail = Mail(itemId = itemId, senderName = senderName)
-        mailRepository.removeMail(userId, ownerName, mail)
+        return mailRepository.removeMail(userId, ownerName, mail)
     }
 }

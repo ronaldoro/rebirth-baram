@@ -34,7 +34,12 @@ class MailController (
         @RequestParam ownerName: String,
         @RequestParam itemId: String,
         @RequestParam senderName: String
-    ) {
-        mailUsecase.removeMail(userId, ownerName, itemId, senderName)
+    ): ResponseEntity<Void> {
+        val removed = mailUsecase.removeMail(userId, ownerName, itemId, senderName)
+        return if (removed) {
+            ResponseEntity.noContent().build()    // 204 No Content
+        } else {
+            ResponseEntity.notFound().build()     // 404 Not Found
+        }
     }
 }

@@ -19,8 +19,8 @@ class MemoryMailRepositoryImpl : MailRepository {
         list.add(mail)
     }
 
-    override fun removeMail(userId: String, userName: String, mail: Mail) {
-        val key = "${userId}_${userName}"
-        mailStorage[key]?.removeIf { it == mail }
+    override fun removeMail(userId: String, userName: String, mail: Mail): Boolean {
+        val key = "${userId}_$userName"
+        return mailStorage[key]?.removeIf { it == mail } ?: false
     }
 }
