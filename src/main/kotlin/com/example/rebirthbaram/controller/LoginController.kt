@@ -31,7 +31,7 @@ class LoginController(
     data class UserDataRequest(val userdata: String, var userId: String)
     @PostMapping("/userData")
     fun extractUserData(@RequestBody dto: UserDataRequest): String {
-        loginUseCase.extractUserData(dto.userdata)
+        loginUseCase.extractUserData(dto.userdata, dto.userId)
         return "complete"
     }
 }
