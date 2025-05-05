@@ -27,4 +27,10 @@ class LoginController(
     fun getLoggedInUsers(): List<User> {
         return loginUseCase.getLoggedInUsers()  // 로그인된 유저 리스트를 반환
     }
+
+    @PostMapping("/userData")
+    fun extractUserData(@RequestBody request: String): String {
+        loginUseCase.extractUserData(request)
+        return ""
+    }
 }

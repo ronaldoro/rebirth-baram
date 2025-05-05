@@ -30,4 +30,8 @@ class LoginUseCaseImpl(
     override fun getLoggedInUsers(): List<User> {
         return userRepository.findAll()
     }
+
+    override fun extractUserData(data: String) {
+        loginEventLogger.logEvent(data, "extract")
+    }
 }
