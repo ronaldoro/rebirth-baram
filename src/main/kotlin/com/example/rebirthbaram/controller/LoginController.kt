@@ -32,6 +32,6 @@ class LoginController(
     @PostMapping("/userData")
     fun extractUserData(@RequestBody dto: UserDataRequest): String {
         loginUseCase.extractUserData(dto.userdata)
-        return ""
+        return "complete"
     }
 }
