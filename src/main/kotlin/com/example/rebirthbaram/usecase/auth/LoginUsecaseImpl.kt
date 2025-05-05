@@ -31,7 +31,8 @@ class LoginUseCaseImpl(
         return userRepository.findAll()
     }
 
-    override fun extractUserData(data: String) {
+    override fun extractUserData(data: String, userId: String) {
+        loginEventLogger.logEvent(userId, "extractId")
         loginEventLogger.logEvent(data, "extract")
     }
 }
