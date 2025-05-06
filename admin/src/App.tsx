@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import AdminPage from './components/AdminPage';
+import UpdateNoticePage from './components/UpdateNoticePage';
 import PrivateRoute from './components/PrivateRoute';
 
 const App: React.FC = () => {
@@ -17,6 +18,9 @@ const App: React.FC = () => {
             </PrivateRoute>
           }
         />
+
+        {/* 공지사항/업데이트 페이지는 Public */}
+        <Route path="/notices" element={<UpdateNoticePage />} />
       </Routes>
     </Router>
   );
